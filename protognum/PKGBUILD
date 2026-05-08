@@ -1,0 +1,23 @@
+# Maintainer: Harpiah <seu-email@provedor.com>
+pkgname=protognum-git
+_pkgname=protognum
+pkgver=1.0
+pkgrel=1
+pkgdesc="Gerenciador Tático Alpha Node - Central de Comando"
+arch=('x86_64')
+url="https://github.com"
+license=('MIT')
+
+depends=('ncurses' 'networkmanager' 'qterminal' 'nsxiv')
+makedepends=('gcc' 'make')
+
+package() {
+  # 1. Entra na pasta do seu projeto (ajuste o caminho se necessário)
+  # O binário está em bin/protognum segundo sua imagem
+  
+  # 2. Instala o seu binário compilado em /usr/bin para ser global
+  install -Dm755 "${srcdir}/../bin/protognum" "${pkgdir}/usr/bin/protognum"
+
+  # 3. Se você tiver algum outro arquivo essencial na raiz, instale aqui
+  # Exemplo: install -Dm644 "${srcdir}/../README.md" "${pkgdir}/usr/share/doc/protognum/README.md"
+}
