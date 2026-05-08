@@ -2,6 +2,8 @@
 > **Gerenciador Tático Alpha Node** • *Engenharia de Baixo Nível & Operações de Núcleo*
 
 
+
+
 ## 📸 INTERFACE DO SISTEMA
 ![Banner Principal](protognum/assets/proto-theme1.png)
 ![Dashboard Alpha](protognum/assets/protoscreen.png)
@@ -45,4 +47,5 @@ sudo pacman -S ncurses networkmanager udisks2 polkit qterminal nsxiv base-devel
 
 ---
 **[⌬] STATUS:** *Sistema Operacional • Zeus-Browser ativo • Aguardando comandos.*
+<!-- TAGS: archlinux terminal tui c-programming low-level sysadmin hacking aesthetic archon zeus-browser -->
 
