@@ -1,5 +1,6 @@
 # ⌬ PROTOGNUM ─ [CENTRAL DE COMANDO]
-> **Gerenciador Tático Alpha Node** • *Ambiente de Recon e Operações Nucleares*
+> **Gerenciador Tático Alpha Node** • *Engenharia de Baixo Nível & Operações de Núcleo*
+
 
 ## 📸 INTERFACE DO SISTEMA
 ![Banner Principal](protognum/assets/proto-theme1.png)
