@@ -34,7 +34,6 @@ sudo pacman -S ncurses networkmanager udisks2 polkit qterminal nsxiv base-devel
 ---
 
 ## 🛰️ MÓDULOS DE VISUALIZAÇÃO
-## 🛰️ MÓDULOS DE VISUALIZAÇÃO
 
 
 | Editor Nano | Visualização de Assets |
