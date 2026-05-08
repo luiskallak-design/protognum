@@ -104,7 +104,17 @@ int main() {
         }
         
         // --- FUNÇÕES F1-F5 ---
-        else if (ch == KEY_F(1)) { def_prog_mode(); endwin(); system("sudo mount /dev/sdb1 /media"); reset_prog_mode(); refresh(); }
+       else if (ch == KEY_F(1)) { 
+    def_prog_mode(); endwin(); 
+    printf("⌬ INICIALIZANDO MONTAGEM EM /run/media/...\n");
+    system("udisksctl mount -b /dev/sdb1 && echo '✅ SUCESSO' || echo '❌ FALHA'"); 
+    printf("\nVerifique o diretório /run/media/ para acessar os dados.");
+    printf("\nPressione ENTER para retornar...");
+    getchar(); 
+    reset_prog_mode(); refresh(); 
+}
+
+
         else if (ch == KEY_F(2)) { *c_mo = MODO_FILE; chdir(getenv("HOME")); getcwd(c_pa, 512); *c_co = list_files(".", c_it); *c_sel = 0; *c_off = 0; }
         else if (ch == KEY_F(3)) { def_prog_mode(); endwin(); system("sudo cfdisk"); reset_prog_mode(); refresh(); }
         else if (ch == KEY_F(4)) { char cn[1024]; def_prog_mode(); endwin(); sprintf(cn, "sudo nano \"%s/%s\"", c_pa, c_it[*c_sel].name); system(cn); reset_prog_mode(); refresh(); }
