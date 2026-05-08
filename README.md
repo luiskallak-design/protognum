@@ -34,11 +34,14 @@ sudo pacman -S ncurses networkmanager udisks2 polkit qterminal nsxiv base-devel
 ---
 
 ## 🛰️ MÓDULOS DE VISUALIZAÇÃO
+## 🛰️ MÓDULOS DE VISUALIZAÇÃO
 
 
 | Editor Nano | Visualização de Assets |
 | :---: | :---: |
-| ![Nano](assets/protonano.png) | ![Player](assets/protoplayer.png) |
+| ![Nano](protognum/assets/protonano.png) | ![Player](protognum/assets/protoplayer.png) |
+
+
 
 ---
 **[⌬] STATUS:** *Sistema Operacional • Zeus-Browser ativo • Aguardando comandos.*
