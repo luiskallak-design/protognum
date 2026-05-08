@@ -2,8 +2,9 @@
 > **Gerenciador Tático Alpha Node** • *Ambiente de Recon e Operações Nucleares*
 
 ## 📸 INTERFACE DO SISTEMA
-![Banner Principal](assets/proto-theme1.png)
-![Dashboard Alpha](assets/protoscreen.png)
+![Banner Principal](protognum/assets/proto-theme1.png)
+![Dashboard Alpha](protognum/assets/protoscreen.png)
+
 
 ---
 
