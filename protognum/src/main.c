@@ -130,7 +130,7 @@ int main() {
             noecho(); curs_set(0);
             if (strlen(qq) > 0) {
                 *c_mo = MODO_ZEUS; *c_co = 3; *c_sel = 0; *c_off = 0;
-                snprintf(c_it[0].name, 256, "⌬ ZEUS_LINK: %s", qq);
+                snprintf(c_it[0].name, 256, "⌬ ZEUS_LINK: %.230s", qq);
                 strcpy(c_it[1].name, "⌬ ZEUS_STREAM (YOUTUBE)");
                 strcpy(c_it[2].name, "⌬ ZEUS_RETURN (BACKSPACE)");
                 zeus_loading_anim(max_y - 2, 1);
