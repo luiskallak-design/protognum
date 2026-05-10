@@ -118,14 +118,17 @@ void execute_tactic_prompt(int max_y) {
         reset_prog_mode(); refresh();
     }
 }
-
-// --- 6. AÇÃO ZEUS ---
 void execute_zeus_action(const char *query, int is_video) {
     zeus_loading_anim(LINES - 2, 1);
     char cmd[1024];
+    
     if (is_video) 
-        snprintf(cmd, sizeof(cmd), "chromium --app=https://youtube.com &", query);
+        // Adicionamos 2>/dev/null antes do & para esconder o erro de endpoint
+        snprintf(cmd, sizeof(cmd), "chromium --app=https://youtube.com >/dev/null 2>&1 &");
     else 
-        snprintf(cmd, sizeof(cmd), "chromium --app=https://google.com &", query);
+        snprintf(cmd, sizeof(cmd), "chromium --app=https://google.com >/dev/null 2>&1 &");
+        
     system(cmd);
 }
+
+
