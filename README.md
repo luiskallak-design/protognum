@@ -29,10 +29,6 @@
 ## 📦 DEPENDÊNCIAS
 `ncurses`, `networkmanager`, `udisks2`, `polkit`, `qterminal`, `nsxiv`.
 
-### 🛠️ Instalação (Arch / Archon):
-```bash
-sudo pacman -S ncurses networkmanager udisks2 polkit qterminal nsxiv base-devel
-```
 ## 🚀 RITUAL DE INSTALAÇÃO
 
 O sistema possui uma forja inteligente que detecta o ambiente e baixa automaticamente o ecossistema de áudio necessário durante o processo.
