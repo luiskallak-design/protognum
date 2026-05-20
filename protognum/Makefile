@@ -36,7 +36,19 @@ all: setup $(TARGET)
 setup:
 	@mkdir -p bin obj
 	@echo -e "$(CYAN)⌬ INICIALIZANDO AMBIENTE DE RECON...$(RESET)"
-
+# Verifica e instala o ArchonPlayer se não estiver presente no sistema
+archon_dep:
+	@if ! command -v archonplayer >/dev/null 2>&1; then \
+		echo -e "$(WHITE)$(BOLD)⌬ [SINAL]$(RESET) $(BLUE)ArchonPlayer não detectado. Iniciando forja automática...$(RESET)"; \
+		git clone $(ARCHON_GIT) /tmp/archonplayer-tui && \
+		cd /tmp/archonplayer-tui && \
+		make && \
+		sudo make install && \
+		rm -rf /tmp/archonplayer-tui; \
+		echo -e "$(CYAN)⌬ [ECOSISTEMA] ArchonPlayer forjado e linkado com sucesso!$(RESET)\n"; \
+	else \
+		echo -e "$(BLUE)⌬ [ECOSISTEMA] ArchonPlayer já integrado ao ecossistema. Sincronizado.$(RESET)"; \
+	fi
 # Linkagem Final
 $(TARGET): $(OBJ)
 	@echo -e "$(CYAN)⌬ CONSOLIDANDO NÚCLEO: $(RESET)$@"
