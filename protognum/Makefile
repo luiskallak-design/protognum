@@ -2,6 +2,11 @@
 TARGET  = bin/protognum
 CC      = gcc
 
+
+# Repositório correto da dependência essencial
+ARCHON_GIT = https://github.com/luiskallak-design/archonplayer-tui
+
+
 # Variáveis de Portabilidade (O segredo para todas as distros)
 PREFIX  ?= /usr/local
 BINDIR  = $(PREFIX)/bin
