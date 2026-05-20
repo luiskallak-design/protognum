@@ -2,10 +2,8 @@
 TARGET  = bin/protognum
 CC      = gcc
 
-
 # Repositório correto da dependência essencial
 ARCHON_GIT = https://github.com/luiskallak-design/archonplayer-tui
-
 
 # Variáveis de Portabilidade (O segredo para todas as distros)
 PREFIX  ?= /usr/local
@@ -15,6 +13,8 @@ BINDIR  = $(PREFIX)/bin
 CYAN    = \033[0;36m
 RED     = \033[0;31m
 GREEN   = \033[0;32m
+WHITE   = \033[1;37m
+BLUE    = \033[0;34m
 BOLD    = \033[1m
 RESET   = \033[0m
 
@@ -28,7 +28,10 @@ OBJ     = $(patsubst src/%.c, obj/%.o, $(SRC))
 
 # --- EXECUÇÃO ---
 
-all: setup $(TARGET)
+.PHONY: all clean setup install archon_dep
+
+# CORREÇÃO: archon_dep adicionado aqui para garantir a execução antes da compilação
+all: setup archon_dep $(TARGET)
 	@echo -e "\n$(GREEN)$(BOLD)⌬ [PROTOGNUM] PROTOCOLO ATIVADO COM SUCESSO!$(RESET)"
 	@echo -e "$(CYAN)❱❱ Alvo localizado em: $(TARGET)$(RESET)\n"
 
@@ -36,6 +39,7 @@ all: setup $(TARGET)
 setup:
 	@mkdir -p bin obj
 	@echo -e "$(CYAN)⌬ INICIALIZANDO AMBIENTE DE RECON...$(RESET)"
+
 # Verifica e instala o ArchonPlayer se não estiver presente no sistema
 archon_dep:
 	@if ! command -v archonplayer >/dev/null 2>&1; then \
@@ -49,6 +53,7 @@ archon_dep:
 	else \
 		echo -e "$(BLUE)⌬ [ECOSISTEMA] ArchonPlayer já integrado ao ecossistema. Sincronizado.$(RESET)"; \
 	fi
+
 # Linkagem Final
 $(TARGET): $(OBJ)
 	@echo -e "$(CYAN)⌬ CONSOLIDANDO NÚCLEO: $(RESET)$@"
@@ -72,4 +77,3 @@ install: all
 	@echo -e "\n$(GREEN)⌬ INSTALADO EM: $(BOLD)$(DESTDIR)$(BINDIR)$(RESET)"
 	@echo -e "$(GREEN)⌬ DICA:$(RESET) $(BOLD)ZEUS-BROWSER$(RESET) detectado no horizonte."
 
-.PHONY: all clean setup install
