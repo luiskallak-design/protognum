@@ -33,6 +33,35 @@
 ```bash
 sudo pacman -S ncurses networkmanager udisks2 polkit qterminal nsxiv base-devel
 ```
+## 🚀 RITUAL DE INSTALAÇÃO
+
+O sistema possui uma forja inteligente que detecta o ambiente e baixa automaticamente o ecossistema de áudio necessário durante o processo.
+
+### 1. Preparar o Terreno (Dependências)
+Antes de compilar, garanta as ferramentas essenciais de compilação e as bibliotecas de sistema:
+
+```bash
+sudo pacman -S ncurses networkmanager udisks2 polkit qterminal nsxiv base-devel git make gcc
+```
+
+### 2. Clonagem da Central
+Baixe o código-fonte original diretamente do repositório do Olimpo:
+
+```bash
+git clone https://github.com/luiskallak-design/protognum
+cd protognum
+```
+
+### 3. Compilação e Instalação Global
+Dispare a compilação do núcleo. O sistema verificará a presença do `archonplayer` e o integrará de forma automatizada caso necessário.
+
+```bash
+# Compila e prepara os binários locais
+make
+
+# Move o binário de forma segura para o caminho do sistema
+sudo make install
+```
 
 ---
 
