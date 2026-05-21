@@ -44,7 +44,7 @@ setup:
 archon_dep:
 	@if ! command -v archonplayer >/dev/null 2>&1; then \
 		echo -e "$(WHITE)$(BOLD)⌬ [SINAL]$(RESET) $(BLUE)ArchonPlayer não detectado. Iniciando forja automática...$(RESET)"; \
-		git clone $(ARCHON_GIT) /tmp/archonplayer-tui/archonplayer && \
+		git clone $(ARCHON_GIT) /tmp/archonplayer-tui && \
 		cd /tmp/archonplayer-tui/archonplayer && \
 		make && \
 		sudo make install && \
