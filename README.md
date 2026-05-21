@@ -45,7 +45,7 @@ Baixe o código-fonte original diretamente do repositório do Olimpo:
 
 ```bash
 git clone https://github.com/luiskallak-design/protognum
-cd protognum
+cd protognum/protognum
 ```
 
 ### 3. Compilação e Instalação Global
