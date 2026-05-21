@@ -3,7 +3,7 @@ TARGET  = bin/protognum
 CC      = gcc
 
 # Repositório correto da dependência essencial
-ARCHON_GIT = https://github.com/luiskallak-design/archonplayer-tui
+ARCHON_GIT = https://github.com/luiskallak-design/archonplayer-tui/archonplayer
 
 # Variáveis de Portabilidade (O segredo para todas as distros)
 PREFIX  ?= /usr/local
@@ -44,8 +44,8 @@ setup:
 archon_dep:
 	@if ! command -v archonplayer >/dev/null 2>&1; then \
 		echo -e "$(WHITE)$(BOLD)⌬ [SINAL]$(RESET) $(BLUE)ArchonPlayer não detectado. Iniciando forja automática...$(RESET)"; \
-		git clone $(ARCHON_GIT) /tmp/archonplayer-tui && \
-		cd /tmp/archonplayer-tui && \
+		git clone $(ARCHON_GIT) /tmp/archonplayer-tui/archonplayer && \
+		cd /tmp/archonplayer-tui/archonplayer && \
 		make && \
 		sudo make install && \
 		rm -rf /tmp/archonplayer-tui; \
