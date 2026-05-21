@@ -44,7 +44,7 @@ sudo pacman -S ncurses networkmanager udisks2 polkit qterminal nsxiv base-devel 
 Baixe o código-fonte original diretamente do repositório do Olimpo:
 
 ```bash
-git clone https://github.com/luiskallak-design/protognum
+git clone https://github.com/luiskallak-design/protognum/protognum
 cd protognum
 ```
 
