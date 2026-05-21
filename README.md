@@ -1,13 +1,11 @@
 # ⌬ PROTOGNUM ─ [CENTRAL DE COMANDO]
 > **Gerenciador Tático Alpha Node** • *Engenharia de Baixo Nível & Operações de Núcleo*
 
-
-
+---
 
 ## 📸 INTERFACE DO SISTEMA
 ![Banner Principal](protognum/assets/proto-theme1.png)
 ![Dashboard Alpha](protognum/assets/protoscreen.png)
-
 
 ---
 
@@ -28,6 +26,8 @@
 
 ## 📦 DEPENDÊNCIAS
 `ncurses`, `networkmanager`, `udisks2`, `polkit`, `qterminal`, `nsxiv`.
+
+---
 
 ## 🚀 RITUAL DE INSTALAÇÃO
 
@@ -61,14 +61,31 @@ sudo make install
 
 ---
 
+## ⚡ OTIMIZAÇÃO PARA HARDWARE LIMITADO / NOTEBOOKS
+
+Se você estiver rodando o Protognum em um notebook antigo ou com hardware mais modesto, o sistema operacional pode exibir um aviso de que o `/bin/bash` travou ao fechar o programa. Isso ocorre devido à lentidão do processador para limpar os processos do shell em segundo plano.
+
+Para economizar memória RAM e forçar um fechamento de janela limpo e instantâneo, inicialize o gerenciador substituindo o processo do terminal através do comando `exec`:
+
+```bash
+exec protognum
+```
+
+### Inicialização Permanente (Opcional)
+Para automatizar esse comportamento e não precisar digitar `exec` manualmente todas as vezes, adicione um alias ao arquivo de configuração do seu shell (`~/.bashrc` ou `~/.zshrc`):
+
+```bash
+alias protognum='exec /usr/local/bin/protognum'
+```
+
+---
+
 ## 🛰️ MÓDULOS DE VISUALIZAÇÃO
 
 
 | Editor Nano | Visualização de Assets |
 | :---: | :---: |
 | ![Nano](protognum/assets/protonano.png) | ![Player](protognum/assets/protoplayer.png) |
-
-
 
 ---
 **[⌬] STATUS:** *Sistema Operacional • Zeus-Browser ativo • Aguardando comandos.*
