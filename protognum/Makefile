@@ -2,8 +2,9 @@
 TARGET  = bin/protognum
 CC      = gcc
 
-# Repositório correto da dependência essencial
-ARCHON_GIT = https://github.com/luiskallak-design/archonplayer-tui
+# Repositórios exatos fornecidos por você
+PROTOGNUM_GIT = https://github.com/luiskallak-design/protognum
+ARCHON_GIT    = https://github.com/luiskallak-design/archonplayer-tui
 
 # Variáveis de Portabilidade (O segredo para todas as distros)
 PREFIX  ?= /usr/local
@@ -30,28 +31,32 @@ OBJ     = $(patsubst src/%.c, obj/%.o, $(SRC))
 
 .PHONY: all clean setup install archon_dep
 
-# CORREÇÃO: archon_dep adicionado aqui para garantir a execução antes da compilação
+# Garante as pastas, as dependências externas e compila o binário
 all: setup archon_dep $(TARGET)
 	@echo -e "\n$(GREEN)$(BOLD)⌬ [PROTOGNUM] PROTOCOLO ATIVADO COM SUCESSO!$(RESET)"
 	@echo -e "$(CYAN)❱❱ Alvo localizado em: $(TARGET)$(RESET)\n"
 
-# Prepara o terreno (Pastas)
+# Prepara o terreno (Pastas locais)
 setup:
 	@mkdir -p bin obj
 	@echo -e "$(CYAN)⌬ INICIALIZANDO AMBIENTE DE RECON...$(RESET)"
 
-# Verifica e instala o ArchonPlayer se não estiver presente no sistema
+# Exibe explicitamente as informações de clone de ambos os sistemas
 archon_dep:
+	@echo -e "$(WHITE)$(BOLD)⌬ [FONTE PROTOGNUM]$(RESET) $(CYAN)Sincronizado com: $(PROTOGNUM_GIT)$(RESET)"
 	@if ! command -v archonplayer >/dev/null 2>&1; then \
-		echo -e "$(WHITE)$(BOLD)⌬ [SINAL]$(RESET) $(BLUE)ArchonPlayer não detectado. Iniciando forja automática...$(RESET)"; \
-		git clone $(ARCHON_GIT) /tmp/archonplayer-tui && \
-		cd /tmp/archonplayer-tui/archonplayer && \
+		echo -e "$(WHITE)$(BOLD)⌬ [SINAL]$(RESET) $(BLUE)ArchonPlayer não detectado no sistema...$(RESET)"; \
+		echo -e "$(WHITE)$(BOLD)⌬ [CLONANDO DEP]$(RESET) $(GREEN)Iniciando: git clone $(ARCHON_GIT)$(RESET)"; \
+		git clone $(ARCHON_GIT) /tmp/archonplayer-tui; \
+		cd /tmp/archonplayer-tui && \
+		chmod +x install_deps.sh && sudo ./install_deps.sh && \
+		cd archonplayer && \
 		make && \
 		sudo make install && \
 		rm -rf /tmp/archonplayer-tui; \
 		echo -e "$(CYAN)⌬ [ECOSISTEMA] ArchonPlayer forjado e linkado com sucesso!$(RESET)\n"; \
 	else \
-		echo -e "$(BLUE)⌬ [ECOSISTEMA] ArchonPlayer já integrado ao ecossistema. Sincronizado.$(RESET)"; \
+		echo -e "$(BLUE)⌬ [ECOSISTEMA] ArchonPlayer já integrado ao ecossistema global. Sincronizado.$(RESET)"; \
 	fi
 
 # Linkagem Final
@@ -69,11 +74,10 @@ clean:
 	@rm -rf obj/*.o bin/*
 	@echo -e "$(RED)⌬ LIMPANDO RASTROS DE OPERAÇÃO...$(RESET)"
 
-# Instalação Profissional (Funciona no Arch, Debian, Fedora, etc.)
+# Instalação Profissional
 install: all
 	@echo -e "$(CYAN)⌬ ENVIANDO BINÁRIO PARA O SISTEMA...$(RESET)"
 	@mkdir -p $(DESTDIR)$(BINDIR)
 	@install -m 755 $(TARGET) $(DESTDIR)$(BINDIR)/protognum
 	@echo -e "\n$(GREEN)⌬ INSTALADO EM: $(BOLD)$(DESTDIR)$(BINDIR)$(RESET)"
 	@echo -e "$(GREEN)⌬ DICA:$(RESET) $(BOLD)ZEUS-BROWSER$(RESET) detectado no horizonte."
-
