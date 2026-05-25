@@ -9,20 +9,19 @@
 
 ---
 
-## ⌨️ PROTOCOLO DE ATALHOS (CONSOLE)
+## ⌨ PROTOCOLO DE ATALHOS (CONSOLE)
 
 
 | Tecla | Módulo | Função de Operação |
-| :---: | :--- | :--- |
+| :--- | :--- | :--- |
 | **F1** | 💾 **USB** | Montagem segura em `/run/media/` via `udisksctl`. |
 | **F2** | 🏠 **HOME** | Salto tático para o diretório `/home/$USER`. |
-| **G**  | ⚡ **ZEUS** | **Recon:** Navegação Google Duck / YouTube. |
+| **G ❱ G + ENTER + ENTER** | ⚡ **ZEUS** | **Recon:** Abre o console com a primeira tecla e confirma a busca com a sequência. |
 | **F3** | 💽 **DISK** | `cfdisk` - Gerenciador de partições. **[!] CUIDADO.** |
 | **F4** | 📝 **NANO** | Editor de código e logs em tempo real. |
 | **F5** | 🧠 **CORES** | Alternar esquemas de cores. |
-| **F10**| ❌ **EXIT** | Desativação segura do sistema. |
+| **F10** | ❌ **EXIT** | Desativação segura do sistema. |
 
----
 
 ## 📦 DEPENDÊNCIAS
 `ncurses`, `networkmanager`, `udisks2`, `polkit`, `qterminal`, `nsxiv`.
