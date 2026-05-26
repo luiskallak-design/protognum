@@ -118,15 +118,26 @@ void execute_tactic_prompt(int max_y) {
         reset_prog_mode(); refresh();
     }
 }
+// --- 6. AÇÃO ZEUS ---
 void execute_zeus_action(const char *query, int is_video) {
     zeus_loading_anim(LINES - 2, 1);
     char cmd[1024];
+    const char *url = is_video ? "https://youtube.com" : "https://google.com";
     
-    if (is_video) 
-        // Adicionamos 2>/dev/null antes do & para esconder o erro de endpoint
-        snprintf(cmd, sizeof(cmd), "chromium --app=https://youtube.com >/dev/null 2>&1 &");
-    else 
-        snprintf(cmd, sizeof(cmd), "chromium --app=https://google.com >/dev/null 2>&1 &");
+    // 1. Detecta o que está disponível no Linux do usuário
+    if (system("which brave > /dev/null 2>&1") == 0) {
+        snprintf(cmd, sizeof(cmd), "brave --app=%s >/dev/null 2>&1 &", url);
+    } 
+    else if (system("which chromium > /dev/null 2>&1") == 0) {
+        snprintf(cmd, sizeof(cmd), "chromium --app=%s >/dev/null 2>&1 &", url);
+    } 
+    else if (system("which google-chrome > /dev/null 2>&1") == 0) {
+        snprintf(cmd, sizeof(cmd), "google-chrome --app=%s >/dev/null 2>&1 &", url);
+    } 
+    // 2. SOLUÇÃO UNIVERSAL: Se não tiver nenhum acima, usa o navegador padrão do sistema (Firefox, etc.)
+    else {
+        snprintf(cmd, sizeof(cmd), "xdg-open %s >/dev/null 2>&1 &", url);
+    }
         
     system(cmd);
 }
