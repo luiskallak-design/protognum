@@ -24,7 +24,7 @@
 
 
 ## 📦 DEPENDÊNCIAS
-`ncurses`, `networkmanager`, `udisks2`, `polkit`, `qterminal`, `nsxiv`.
+`ncurses`, `networkmanager`, `udisks2`, `polkit`, `qterminal`, `nsxiv`. `chromium `,
 
 ---
 
